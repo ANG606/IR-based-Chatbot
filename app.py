@@ -10,6 +10,8 @@ from rapidfuzz import process
 # === Load Models and Tokenizer ===
 @st.cache_resource
 def load_models():
+    """Load tokenizer, BERT model, trained intent classifier, label encoder, and recipe data."""
+    
     tokenizer = AutoTokenizer.from_pretrained("mesolitica/bert-base-standard-bahasa-cased")
     model = AutoModel.from_pretrained("mesolitica/bert-base-standard-bahasa-cased").eval().to("cpu")
     clf = joblib.load("trained_models/intent_classifier.pkl")
@@ -22,6 +24,11 @@ tokenizer, model, clf, label_encoder, recipes = load_models()
 
 # === Embedding Function ===
 def get_embedding(text):
+    """
+    Generate BERT-based sentence embedding for input text.
+    Returns the mean-pooled embedding as a NumPy array.
+    """
+    
     inputs = tokenizer(text, return_tensors="pt", padding=True, truncation=True, max_length=512)
     with torch.no_grad():
         outputs = model(**inputs)
@@ -35,10 +42,20 @@ def get_embedding(text):
 
 # === Extract recipe name ===
 def extract_recipe_name(text):
+    """
+    Extract recipe name from square brackets in user input.
+    E.g., "[nasi lemak]" → "nasi lemak"
+    """
+    
     match = re.search(r"\[(.*?)\]", text)
     return match.group(1).strip() if match else None
 
 def find_top_recipe_matches(user_input, recipes, limit=3, threshold=0):
+    """
+    Fuzzy match the user input against recipe titles in the dataset.
+    Returns top N matches with scores.
+    """
+    
     def normalize_text(text):
         text = text.lower()
         text = re.sub(r"[^\w\s]", "", text)  # remove special chars (but keep space)
@@ -52,6 +69,14 @@ def find_top_recipe_matches(user_input, recipes, limit=3, threshold=0):
     return [(titles[i], score) for (match, score, i) in matches]
 
 def generate_response(user_input):
+    """
+    Main response generator for the chatbot.
+    - Detects user intent
+    - Handles direct replies (e.g., greetings)
+    - Extracts recipe name and retrieves relevant data
+    - Responds based on detected intent (e.g., ingredients, steps)
+    """
+    
     cleaned_input = re.sub(
     r"\[.*?\]",
     lambda m: "[" + 
