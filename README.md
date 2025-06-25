@@ -1,4 +1,4 @@
-#  Information Retrieval Chatbot for Malay Recipes
+#  Information Retrieval-Based Chatbot for Malay Main Dish Recipes
 
 This is a **Bahasa Melayu** recipe question-answering chatbot that helps users retrieve specific information about traditional Malay dishes. It combines **intent classification** using BERT embeddings with **fuzzy string matching** to retrieve recipes from a structured dataset.
 
