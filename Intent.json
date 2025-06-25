@@ -1,0 +1,149 @@
+{
+  "intents": [
+    {
+      "tag": "bertegur-sapa",
+      "patterns": [
+        "Hi", "Hello", "Hey", "Selamat pagi", "Apa khabar?",
+        "Hai", "Salam", "Hai semua", "Assalamualaikum", "Selamat sejahtera",
+        "Hai bot", "Salam hormat", "Apa cerita?", "Hai di sana", "Selamat tengahari"
+      ],
+      "responses": ["Hai! Ada apa saya boleh bantu?", "Salam sejahtera!"]
+    },
+    {
+      "tag": "selamat-tinggal",
+      "patterns": [
+        "Bye", "Jumpa lagi", "Selamat tinggal", "Sudah", "Sampai jumpa",
+        "Babai", "Byebye", "See you", "Goodbye", "Ok bye",
+        "Saya pergi dulu", "Sampai nanti", "Tamat", "Sekian dulu", "Jumpa esok"
+      ],
+      "responses": ["Selamat tinggal!", "Jumpa lagi dan semoga berjaya!"]
+    },
+    {
+      "tag": "terima-kasih",
+      "patterns": [
+        "Terima kasih", "Thank you", "Thanks", "Tq", "Syukur",
+        "Banyak terima kasih", "Terima kasih banyak", "Saya hargai bantuan anda",
+        "Terima kasih ya", "Terima kasih banyak-banyak", "Thanks a lot", "Terima kasih kerana membantu", "Saya amat menghargainya"
+      ],
+      "responses": ["Sama-sama!", "Tiada masalah, senang membantu!"]
+    },
+    {
+      "tag": "penerangan",
+      "patterns": [
+        "Apakah penerangan tentang resepi ini?", "Cerita sikit pasal masakan ni", "Apa itu hidangan ini?",
+        "Nak tahu lebih lanjut tentang resepi ini", "Ceritakan tentang hidangan ni",
+        "Apa info tentang resepi ini?", "Beritahu saya penerangan", "Boleh tak jelaskan resepi ni?",
+        "Saya ingin tahu tentang resepi ini", "Sila terangkan tentang hidangan ini", "Ada maklumat tambahan?"
+      ],
+      "responses": ["Penerangan: {description}"]
+    },
+    {
+      "tag": "masa_penyediaan",
+      "patterns": [
+          "Berapa lama masa penyediaan?",
+          "Masa sediakan bahan berapa minit?",
+          "Berapa minit diperlukan",
+          "Nak berapa masa untuk menyedia?",
+          "Perlu berapa minit untuk menyedia?",
+          "Berapa banyak masa yang diperlukan untuk menyediakan hidangan ini",
+          "Berapa masa untuk siapkan bahan?",
+          "Tempoh penyediaan berapa minit?",
+          "Penyediaan makan masa berapa?"
+      ],
+      "responses": [
+          "Masa penyediaan ialah {masa_penyediaan}"
+      ]
+    },
+    {
+            "tag": "masa_memasak",
+            "patterns": [
+                "Berapa lama masa memasak?",
+                "Berapa minit nak masak resepi ni?",
+                "Masak ambil masa berapa lama?",
+                "Nak berapa masa untuk memasak?",
+                "Perlu berapa minit untuk memasak?",
+                "Berapa banyak masa yang diperlukan untuk memasak hidangan ini",
+                "Berapa banyak masa untuk memasak hidangan ini?",
+                "Tempoh memasak berapa minit?",
+                "Masak hidangan ini makan masa berapa lama?",
+                "Perlu masa berapa untuk masak?"
+            ],
+            "responses": [
+                "Masa memasak ialah {masa_memasak}"
+            ]
+    },
+    {
+            "tag": "jumlah_masa",
+            "patterns": [
+                "Berapa jumlah masa keseluruhan?", 
+                "Keseluruhan masa berapa?",
+                "Masa total masak resepi ni berapa?", 
+                "Berapa lama semua sekali?",
+                "Gabungan masa penyediaan dan memasak berapa?", 
+                "Masa penuh masak hidangan ini?",
+                "Berapa masa sepenuhnya?", 
+                "Jumlah masa yang diambil?"
+            ],
+            "responses": [
+                "Jumlah masa ialah {jumlah_masa}"
+            ]
+        },
+            {
+            "tag": "cara_memasak",
+            "patterns": [
+                "Bagaimana cara memasak?",
+                "Langkah memasak macam mana?",
+                "Apa langkah masak ini?",
+                "Cara memasak ini?",
+                "Cara-cara buat ini?",
+                "Macam mana nak masak ayam masak merah?",
+                "Tolong ajar cara buat rendang daging",
+                "Nak tahu cara masak kari ayam",
+                "Langkah-langkah memasak macam mana?",
+                "Saya nak belajar cara memasak",
+                "Cara memasak nasi lemak macam mana?",
+                "Bagaimana masakan ini dimasak?"
+            ],
+            "responses": [
+                "Ini langkah memasak: {cara_memasak}"
+            ]
+        },
+                {
+            "tag": "bahan_bahan",
+            "patterns": [
+                "Apa bahan untuk resepi ini?", 
+                "Senaraikan bahan-bahan masakan ini",
+                "Boleh saya tahu bahan-bahan?", 
+                "Apa bahan digunakan?", 
+                "Apa bahan diperlukan untuk resepi ini?",
+                "Beritahu bahan resepi ini", 
+                "Apakah bahan-bahan?", 
+                "Senarai bahan lengkap",
+                "bahan-bahan masak ini?",
+                "Nak tahu bahan-bahan", 
+                "Apakah bahan yang diperlukan untuk resepi ini?"
+            ],
+            "responses": [
+                "Berikut adalah bahan-bahan: {bahan_bahan}"
+            ]
+        },
+            {
+            "tag": "petua_panduan",
+            "patterns": [
+                "Ada petua tak untuk masakan ni?", 
+                "Apa tips tak?", 
+                "Panduan memasak macam mana?",
+                "Kongsikan petua memasak", 
+                "Ada tip untuk resepi ini?", 
+                "Boleh bagi panduan masak?",
+                "Ada cadangan masakan ni?", 
+                "Nak tahu rahsia sedap", 
+                "Petua masak supaya jadi sedap",
+                "Panduan khas untuk masak ni?"
+            ],
+            "responses": [
+                "Petua: {petua_panduan}"
+            ]
+        }
+  ]
+}

@@ -1,0 +1,6 @@
+streamlit
+transformers
+torch
+rapidfuzz
+scikit-learn
+joblib
