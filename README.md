@@ -2,6 +2,7 @@
 
 This is a **Bahasa Melayu** recipe question-answering chatbot that helps users retrieve specific information about traditional Malay dishes. It combines **intent classification** using BERT embeddings with **fuzzy string matching** to retrieve recipes from a structured dataset.
 
+---
 
 ## Features
 - **Intent Classification** (e.g., bahan, masa, petua, penerangan)
@@ -9,6 +10,8 @@ This is a **Bahasa Melayu** recipe question-answering chatbot that helps users r
 - **Square bracket recipe name support** for precise queries
 - **Streamlit-powered chatbot UI**
 - Tailored for **Bahasa Melayu** culinary queries
+
+---
 
 ## Project Structure
 ```
@@ -21,25 +24,51 @@ This is a **Bahasa Melayu** recipe question-answering chatbot that helps users r
 ├── Preprocess_Data.json       # Recipe dataset used for retrieval
 ├── requirements.txt               # Project dependencies
 ```
+---
 
 ## Getting Started
 
-### 1. Install Requirements
-```bash
-pip install -r requirements.txt
+## Run the Chatbot Online
+
+You can run this chatbot online for free using **Streamlit Cloud**.
+
+### Step-by-Step: Deploy to Streamlit Cloud
+
+### 1. Prepare Your Files
+
+Ensure these files are inside your project folder:
+
+```
+app.py
+Intent.json
+Intent-classifier-training.ipynb
+intent_classifier.pkl
+label_encoder.pkl
+Preprocess_Data.json
+requirements.txt
 ```
 
-### 2. Ensure Trained Model Files Exist
-Place the following inside a `trained_models/` directory:
+### 2. Upload to GitHub
 
-- `intent_classifier.pkl`
-- `label_encoder.pkl`
-- `Preprocess_Data.json`
+1. Go to [https://github.com/](https://github.com/)
+2. Create a new repository (e.g., `recipe-chatbot`)
+3. Upload all the files to the repository
 
-### 3. Launch the Chatbot
-```bash
-streamlit run app.py
-```
+
+### 3. Deploy on Streamlit Cloud
+
+1. Visit [https://streamlit.io/cloud](https://streamlit.io/cloud)
+2. Click **“Sign in with GitHub”**
+3. Click **“New App”**
+4. Choose your GitHub repository
+5. Set:
+   - **Main file:** `app.py`
+   - **Branch:** `main`
+6. Click **“Deploy”**
+
+🤩 Your chatbot is now online and ready to use!
+
+---
 
 ## How This Chatbot Works
 ![tnl (6)](https://github.com/user-attachments/assets/c475e5ca-b7f3-4e3e-998c-4b4bb95c3329)
@@ -55,6 +84,7 @@ streamlit run app.py
 ### Step 3: Response Generation
 - Returns specific fields from the matched recipe depending on the detected intent (e.g., cooking time, ingredients, steps, tips).
 
+---
 
 ## Example Questions
 
