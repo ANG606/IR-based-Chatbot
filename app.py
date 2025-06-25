@@ -296,16 +296,16 @@ Berikut ialah jenis-jenis soalan (intent) yang boleh ditanya:
 
 """)
 
-# === Initialize message history ===
+# === Initialize chat memory for the current session ===
 if "messages" not in st.session_state:
     st.session_state.messages = []
 
-# === Display message history ===
+# === Display previous messages in the chat interface ===
 for message in st.session_state.messages:
     with st.chat_message(message["role"]):
         st.markdown(message["content"])
 
-# === Chat input (bottom of screen) ===
+# === Handle user message input ===
 if prompt := st.chat_input("Cari resepi atau tanya soalan tentang resepi..."):
     # Display user message immediately
     st.session_state.messages.append({"role": "user", "content": prompt})
