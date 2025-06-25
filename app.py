@@ -12,9 +12,9 @@ from rapidfuzz import process
 def load_models():
     tokenizer = AutoTokenizer.from_pretrained("mesolitica/bert-base-standard-bahasa-cased")
     model = AutoModel.from_pretrained("mesolitica/bert-base-standard-bahasa-cased").eval().to("cpu")
-    clf = joblib.load("intent_classifier.pkl")
-    label_encoder = joblib.load("label_encoder.pkl")
-    with open("Preprocess_Data.json", "r", encoding="utf-8") as f:
+    clf = joblib.load("trained_models/intent_classifier.pkl")
+    label_encoder = joblib.load("trained_models/label_encoder.pkl")
+    with open("trained_models/Preprocess_Data.json", "r", encoding="utf-8") as f:
         recipes = json.load(f)
     return tokenizer, model, clf, label_encoder, recipes
 
