@@ -94,6 +94,7 @@ requirements.txt
 - `Ada petua untuk masak [sambal belacan padu]?`
 - `Terima kasih`
 
+---
 
 ## Supported Intents
 | Intent Tag         | Contoh Soalan                                               |
@@ -109,6 +110,7 @@ requirements.txt
 | `selamat-tinggal`  | `Bye`, `Jumpa lagi`                                        |
 | `terima-kasih`     | `Terima kasih`, `Thanks!`                                  |
 
+---
 
 ## Dependencies
 
@@ -123,41 +125,61 @@ scikit-learn
 joblib
 ```
 
+---
+
 ## Training
 
-You can train or retrain the intent classifier using the Jupyter notebook:  
+You can train or retrain the intent classifier using the **Kaggle Notebook**:  
 📄 **`Intent-classifier-training.ipynb`**
 
-### Steps:
+### Step-by-Step: Retrain the Intent Classifier on Kaggle
 
-1. **Load `Intent.json`**  
-   The notebook parses all patterns and intent tags into input–label pairs for training.
+#### 1. Upload Dataset and Notebook to Kaggle
 
-2. **Generate Sentence Embeddings**  
-   For each text pattern, sentence embeddings are generated using the **`mesolitica/bert-base-standard-bahasa-cased`** model from Hugging Face.
+1. Go to [https://www.kaggle.com/](https://www.kaggle.com/)
+2. Click `+ Create > Dataset` → Upload **`Intent.json`** → Click **Create**
+3. Click `+ Create > New Notebook`
+4. Click **“File” > “Import Notebook”** → Upload **`Intent-classifier-training.ipynb`**
+5. On the right sidebar, click **“Add Data”** → Select the dataset you uploaded in Step 2
 
-3. **Label Encoding**  
-   Intent tags (e.g., `bahan_bahan`, `cara_memasak`) are encoded using `LabelEncoder` from `sklearn.preprocessing`.
+#### 2. Run the Notebook
 
-4. **Train the Classifier**  
-   A `LogisticRegression` model (or any scikit-learn classifier) is trained on the embeddings and encoded labels.
+- Load `Intent.json` using:
 
-5. **Save the Trained Models**  
-   Use `joblib` to save:
-   - The classifier → `intent_classifier.pkl`
-   - The label encoder → `label_encoder.pkl`
+```python
+import json
 
-   Example:
-   ```python
-   import joblib
+with open('/kaggle/input/path-to-your-uploaded-dataset(Intent.json)', 'r', encoding='utf-8') as f:
+    data = json.load(f)
+```
 
-   joblib.dump(classifier_model, 'trained_models/intent_classifier.pkl')
-   joblib.dump(label_encoder, 'trained_models/label_encoder.pkl')
-   ```
+- The notebook includes:
+  - Pattern–intent extraction
+  - BERT embedding generation (`mesolitica/bert-base-standard-bahasa-cased`)
+  - Label encoding using `LabelEncoder`
+  - Classifier training (e.g., `LogisticRegression`)
+  - Saving trained models using `joblib`
 
-6. **Use in Inference**  
-   These models will be automatically loaded in `app.py` and used to classify user questions at runtime.
+#### 3. Save the Trained Models
 
+Add this to the end of the notebook:
+
+```python
+import joblib
+
+joblib.dump(classifier_model, 'intent_classifier.pkl')
+joblib.dump(label_encoder, 'label_encoder.pkl')
+```
+
+After the notebook finishes:
+
+1. Go to the **right sidebar** under **“Output”**
+2. Click the **three dots** next to each file:
+   - `intent_classifier.pkl`
+   - `label_encoder.pkl`
+3. Click **“Download”** to save both to your computer
+
+---
 
 ## Notes
 
@@ -165,9 +187,11 @@ You can train or retrain the intent classifier using the Jupyter notebook:
 - Queries must be in **Bahasa Melayu**.
 - Fuzzy matching helps find close recipe names even if the spelling isn't exact.
 
+---
 
 ## Acknowledgements
 
 - BERT embeddings from [Mesolitica](https://huggingface.co/mesolitica)
+- Model training with [Scikit-learn](https://scikit-learn.org/)
 - Fuzzy search by [RapidFuzz](https://github.com/maxbachmann/RapidFuzz)
 - Built with [Streamlit](https://streamlit.io)  
