@@ -30,7 +30,7 @@ This is a **Bahasa Melayu** recipe question-answering chatbot that helps users r
 
 ## Run the Chatbot Online
 
-You can run this chatbot online for free using **Streamlit Cloud**.
+You can run this chatbot online for free using **Streamlit Cloud**  — no installation needed, just open it in your browser and start chatting! Please follow the steps below to run the chatbot.
 
 ### Step-by-Step: Deploy to Streamlit Cloud
 
