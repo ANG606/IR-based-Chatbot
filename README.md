@@ -17,7 +17,7 @@ This is a **Bahasa Melayu** recipe question-answering chatbot that helps users r
 ```
 .
 ├── app.py                          # Main Streamlit chatbot application
-├── Intent.json                    # Intent labels and example patterns (Intent dataset used for training the intent classifier)
+├── Intent.json                    # Intent labels and example patterns (used for training the intent classifier)
 ├── Intent-classifier-training.ipynb  # Classifier training notebook (trained using Kaggle Platform)
 ├── intent_classifier.pkl      # Trained intent classification model
 ├── label_encoder.pkl          # Encoded intent labels
