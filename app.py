@@ -83,7 +83,8 @@ def generate_response(user_input):
         re.sub(r"[^\w\s]", "", re.sub(r"\d+", "", m.group(0))).lower() + "]",
     user_input
     )
-    embed = get_embedding(cleaned_input).reshape(1, -1)
+    intent_input = re.sub(r"\[.*?\]", "", user_input).strip()
+    embed = get_embedding(intent_input).reshape(1, -1)
     pred_class = clf.predict(embed)[0]
     intent = label_encoder.inverse_transform([pred_class])[0]
 
