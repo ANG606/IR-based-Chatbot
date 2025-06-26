@@ -284,7 +284,7 @@ st.sidebar.markdown("""
 
 #### ✅ Jenis Soalan Yang Disokong:
 Berikut ialah jenis-jenis soalan (intent) yang boleh ditanya:
-- **penerangan** – Contoh: `Apa itu [kari ayam istimewa]?`
+- **penerangan** – Contoh: `Terangkan tentang [kari ayam istimewa] ini?`
 - **masa_penyediaan** – Contoh: `Berapa lama masa penyediaan [rendang ayam]?`
 - **masa_memasak** – Contoh: `Tempoh memasak [sambal belacan padu] berapa minit?`
 - **jumlah_masa** – Contoh: `Berapa jumlah masa keseluruhan untuk masak [ayam masak hitam]?`
